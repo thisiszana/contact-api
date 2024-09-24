@@ -44,7 +44,11 @@ export async function POST(req) {
       { status: 202 }
     );
 
+    res.headers.set("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
     res.headers.set("Cache-Control", "no-store");
+
     return res;
   } catch (error) {
     return NextResponse.json(
@@ -69,7 +73,11 @@ export async function GET() {
       { status: 200 }
     );
 
+    res.headers.set("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
     res.headers.set("Cache-Control", "no-store");
+
     return res;
   } catch (error) {
     return NextResponse.json(
