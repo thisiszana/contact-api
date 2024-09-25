@@ -1,6 +1,5 @@
-// app/api/contact/[id]/route.js
-import connectDB from "@/lib/mongodb";
 import ContactBotoStart from "@/model/contactBotoStart";
+import connectDB from "@/utils/connectDB";
 
 import { NextResponse } from "next/server";
 
