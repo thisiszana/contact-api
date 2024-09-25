@@ -2,6 +2,17 @@ import ContactBotoStart from "@/model/contactBotoStart";
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
 export async function POST(req) {
   try {
     await connectDB();
@@ -44,9 +55,7 @@ export async function POST(req) {
       { status: 202 }
     );
 
-    res.headers.set("Access-Control-Allow-Origin", "http://localhost:5173");
-    res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    res.headers.set("Access-Control-Allow-Origin", "*");
     res.headers.set("Cache-Control", "no-store");
 
     return res;
@@ -57,10 +66,9 @@ export async function POST(req) {
     );
   }
 }
-
 export async function GET() {
   try {
-    await connectDB()
+    await connectDB();
     const contactData = await ContactBotoStart.find();
 
     if (!contactData)
