@@ -1,6 +1,7 @@
 // app/api/contact/[id]/route.js
 import connectDB from "@/lib/mongodb";
-import ContactBotoStart from "@/models/ContactBotoStart";
+import ContactBotoStart from "@/model/contactBotoStart";
+
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
