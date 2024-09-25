@@ -2,6 +2,17 @@ import ContactBotoStart from "@/model/contactBotoStart";
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
 export async function PATCH(req, { params: { id } }) {
   try {
     await connectDB();
