@@ -50,9 +50,12 @@ export async function PATCH(req, { params: { id } }) {
     res.headers.set("Access-Control-Allow-Origin", "*");
     res.headers.set(
       "Access-Control-Allow-Methods",
-      "GET, POST, PATCH, OPTIONS"
+      "GET, POST, PATCH, DELETE, OPTIONS"
     );
-    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    res.headers.set(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     res.headers.set("Cache-Control", "no-store");
 
     return res;

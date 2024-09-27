@@ -23,8 +23,14 @@ export async function GET(req, { params }) {
     );
 
     res.headers.set("Access-Control-Allow-Origin", "*");
-    res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    res.headers.set(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+    res.headers.set(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
     res.headers.set("Cache-Control", "no-store");
 
     return res;
